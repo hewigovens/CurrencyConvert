@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Actions</key>
+	<array>
+		<dict>
+			<key>After</key>
+			<string>preview-result</string>
+			<key>Image File</key>
+			<string>currency_yuan.png</string>
+			<key>Regular Expression</key>
+			<string>^(\$\d+[\.]?\d*\b|\d+[\.]?\d*\$)$</string>
+			<key>Script Interpreter</key>
+			<string>/usr/bin/python</string>
+			<key>Shell Script File</key>
+			<string>currency.py</string>
+			<key>Title</key>
+			<dict>
+				<key>en</key>
+				<string>USD Currency Convert</string>
+			</dict>
+		</dict>
+	</array>
+	<key>Extension Description</key>
+	<string>Convert USD dollars to RMB</string>
+	<key>Extension Identifier</key>
+	<string>im.kernelpanic.popclip.extension.currency</string>
+	<key>Extension Name</key>
+	<dict>
+		<key>en</key>
+		<string>USD Convert</string>
+	</dict>
+	<key>Required Software Version</key>
+	<integer>701</integer>
+</dict>
+</plist>
