@@ -12,7 +12,14 @@ __apikey__ = ''
 
 latest_rates = 'latest_rates.json'
 popclip_text = os.getenv('POPCLIP_TEXT')
+popclip_text = popclip_text.replace(',','')
+support_currency={
+                    '$' : 'USD',
+                    '£' : 'GBP',
+                    '€' : 'EUR',
+                    '円' : 'JPY'}
 fp = None
+dollars = None
 
 def get_latest_rates():
     #rates_req = requests.get('http://openexchangerates.org/api/latest.json?app_id=%s' % __apikey__)
@@ -33,7 +40,11 @@ if time_now - timestamp >= 86400:
     fp = open(latest_rates)
     rates_json = json.load(fp)
 
-dollars = float(popclip_text.replace('$',''))
+for currency in support_currency.keys():
+    if currency in popclip_text:
+        dollars = float(popclip_text.replace(currency,'')) / rates_json['rates'][support_currency[currency]]
+        break
+
 chinese_yuan = dollars * rates_json['rates']['CNY']
 
 print "￥%.2f" % chinese_yuan

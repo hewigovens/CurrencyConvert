@@ -10,7 +10,7 @@
 			<key>Image File</key>
 			<string>currency_yuan.png</string>
 			<key>Regular Expression</key>
-			<string>^(\$\d+[\.]?\d*\b|\d+[\.]?\d*\$)$</string>
+			<string>^([\$£€円]\d+[,\.]?\d*\b|\d+[,\.]?\d+[\$£€円])$</string>
 			<key>Script Interpreter</key>
 			<string>/usr/bin/python</string>
 			<key>Shell Script File</key>
@@ -18,18 +18,18 @@
 			<key>Title</key>
 			<dict>
 				<key>en</key>
-				<string>USD Currency Convert</string>
+				<string>CNY Currency Convert</string>
 			</dict>
 		</dict>
 	</array>
 	<key>Extension Description</key>
-	<string>Convert USD dollars to RMB</string>
+	<string>Convert USD/Pound/Euro/JNY to RMB</string>
 	<key>Extension Identifier</key>
 	<string>im.kernelpanic.popclip.extension.currency</string>
 	<key>Extension Name</key>
 	<dict>
 		<key>en</key>
-		<string>USD Convert</string>
+		<string>CNY Currency Convert</string>
 	</dict>
 	<key>Required Software Version</key>
 	<integer>701</integer>
