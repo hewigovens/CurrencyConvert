@@ -1,4 +1,4 @@
-## A [PopClip](http://pilotmoon.com/popclip/extensions/) extension that converts USD to CNY
+## A [PopClip](http://pilotmoon.com/popclip/extensions/) extension that converts USD/GBP/EUR/JPY to CNY
 
 ###Demo
 
