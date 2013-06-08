@@ -1,29 +1,22 @@
 #!/bin/bash
 
-export POPCLIP_TEXT="1000$"
-printf "$POPCLIP_TEXT is:"
-python currency.py
+TEST_INPUT=("1000$"
+    "1000円"
+    "1000£"
+    "35,000€"
+    "円300,000"
+    "299.99£"
+    "1,000€"
+    "441.811 USD"
+    "USD 441.811"
+    "3,105 JPY"
+    "JPY 3,105"
+)
 
-export POPCLIP_TEXT="1,000€"
-printf "$POPCLIP_TEXT is:"
-python currency.py
+COUNT=${#TEST_INPUT[@]}
 
-export POPCLIP_TEXT="1000円"
-printf "$POPCLIP_TEXT is:"
-python currency.py
-
-export POPCLIP_TEXT="1000£"
-printf "$POPCLIP_TEXT is:"
-python currency.py
-
-export POPCLIP_TEXT="35,000€"
-printf "$POPCLIP_TEXT is:"
-python currency.py
-
-export POPCLIP_TEXT="円300,000"
-printf "$POPCLIP_TEXT is:"
-python currency.py
-
-export POPCLIP_TEXT="299.99£"
-printf "$POPCLIP_TEXT is:"
-python currency.py
+for ((i=0; i<$COUNT; i++)); do
+    export POPCLIP_TEXT="${TEST_INPUT[$i]}"
+    printf "$POPCLIP_TEXT is:"
+    python currency.py
+done

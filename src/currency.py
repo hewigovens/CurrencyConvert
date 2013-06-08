@@ -8,7 +8,7 @@ import os
 import time
 
 __author__ = 'hewigovens'
-__apikey__ = ''
+__apikey__ = 'b660a471eaf54818b633df6e563e7477'
 
 latest_rates = 'latest_rates.json'
 popclip_text = os.getenv('POPCLIP_TEXT')
@@ -17,7 +17,10 @@ support_currency={
                     '$' : 'USD',
                     '£' : 'GBP',
                     '€' : 'EUR',
-                    '円' : 'JPY'}
+                    '円' : 'JPY',
+                    'USD' : 'USD',
+                    'JPY' : 'JPY'
+                    }
 fp = None
 dollars = None
 
