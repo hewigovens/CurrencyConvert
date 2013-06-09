@@ -23,6 +23,7 @@
  		├── Config.plist
 		├── build.sh
     	├── currency.py
+    	├── settings_local.py
     	├── currency_yuan.png
     	├── latest_rates.json
     	└── test.sh
