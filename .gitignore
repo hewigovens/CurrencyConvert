@@ -2,3 +2,4 @@
 *.swp
 *.pyc
 *.pyo
+src/settings_local.py

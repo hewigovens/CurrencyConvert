@@ -9,7 +9,7 @@
 ###How to build
 
 * Install PopClip
-* Fill up your [open exchange rates](http://openexchangerates.org/) appid (`__apikey__` in `src/currency.py`)
+* Fill up your [open exchange rates](http://openexchangerates.org/) appid (`__apikey__` in `src/settings_local.py`)
 * cd to `src` folder
 * execute `./test.sh` to check if have any errors
 * execute `./build.sh` to build and install
