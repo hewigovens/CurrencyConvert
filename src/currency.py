@@ -2,32 +2,36 @@
 # coding:utf-8
 
 import json
-#import requests
+# import requests
 import urllib2
 import os
 import time
+from settings_local import __apikey__
 
 __author__ = 'hewigovens'
-__apikey__ = ''
 
 latest_rates = 'latest_rates.json'
 popclip_text = os.getenv('POPCLIP_TEXT')
-popclip_text = popclip_text.replace(',','')
-support_currency={
-                    '$' : 'USD',
-                    '£' : 'GBP',
-                    '€' : 'EUR',
-                    '円' : 'JPY',
-                    'USD' : 'USD',
-                    'JPY' : 'JPY'
-                    }
+popclip_text = popclip_text.replace(',', '')
+support_currency = {
+    '$': 'USD',
+    '£': 'GBP',
+    '€': 'EUR',
+    '円': 'JPY',
+    'USD': 'USD',
+    'JPY': 'JPY'
+}
 fp = None
 dollars = None
 
+
 def get_latest_rates():
-    #rates_req = requests.get('http://openexchangerates.org/api/latest.json?app_id=%s' % __apikey__)
-    rates_req = urllib2.urlopen('http://openexchangerates.org/api/latest.json?app_id=%s' % __apikey__)
-    with open(latest_rates,'w') as fp:
+    # rates_req =
+    # requests.get('http://openexchangerates.org/api/latest.json?app_id=%s' %
+    # __apikey__)
+    rates_req = urllib2.urlopen(
+        'http://openexchangerates.org/api/latest.json?app_id=%s' % __apikey__)
+    with open(latest_rates, 'w') as fp:
         fp.writelines(''.join(rates_req.readlines()))
 
 if not os.path.exists(latest_rates):
@@ -45,7 +49,8 @@ if time_now - timestamp >= 86400:
 
 for currency in support_currency.keys():
     if currency in popclip_text:
-        dollars = float(popclip_text.replace(currency,'')) / rates_json['rates'][support_currency[currency]]
+        dollars = float(popclip_text.replace(
+            currency, '')) / rates_json['rates'][support_currency[currency]]
         break
 
 chinese_yuan = dollars * rates_json['rates']['CNY']

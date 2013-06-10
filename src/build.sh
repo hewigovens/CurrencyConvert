@@ -1,7 +1,7 @@
 #!/bin/bash
 
 APP=CurrencyConvert
-FILES="Config.plist currency.py currency_yuan.png"
+FILES="Config.plist currency.py currency_yuan.png settings_local.py"
 
 EXT_FOLDER="$APP.popclipext"
 EXT_FILENAME="$APP.popclipextz"
