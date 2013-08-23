@@ -2,10 +2,10 @@
 # coding:utf-8
 
 import json
-# import requests
 import urllib2
 import os
 import time
+import locale
 from settings_local import __apikey__
 
 __author__ = 'hewigovens'
@@ -21,14 +21,13 @@ support_currency = {
     'USD': 'USD',
     'JPY': 'JPY'
 }
+
+locale.setlocale(locale.LC_ALL, 'zh_CN')
 fp = None
 dollars = None
 
 
 def get_latest_rates():
-    # rates_req =
-    # requests.get('http://openexchangerates.org/api/latest.json?app_id=%s' %
-    # __apikey__)
     rates_req = urllib2.urlopen(
         'http://openexchangerates.org/api/latest.json?app_id=%s' % __apikey__)
     with open(latest_rates, 'w') as fp:
@@ -55,6 +54,5 @@ for currency in support_currency.keys():
 
 chinese_yuan = dollars * rates_json['rates']['CNY']
 
-print "￥%.2f" % chinese_yuan
-
-fp.close()
+print("￥%s" % (locale.format('%.2f', chinese_yuan, grouping=True)))
+fp.close
