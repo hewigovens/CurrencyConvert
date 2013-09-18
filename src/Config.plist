@@ -10,7 +10,7 @@
 			<key>Image File</key>
 			<string>currency_yuan.png</string>
 			<key>Regular Expression</key>
-			<string>^((USD)|(JPY)|[\$£€円])[ ]?\d+[,\. ]?\d*\b|\d+[,\.]?\d+[ ]?([\$£€円]|([ ]?(USD)|(JPY)))$</string>
+			<string>^((USD)|(JPY)|[\$£€円￥])[ ]?\d+[,\. ]?\d*\b|\d+[,\.]?\d+[ ]?([\$£€円￥]|([ ]?(USD)|(JPY)))$</string>
 			<key>Script Interpreter</key>
 			<string>/usr/bin/python</string>
 			<key>Shell Script File</key>

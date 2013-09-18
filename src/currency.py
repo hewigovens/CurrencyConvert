@@ -9,17 +9,19 @@ import locale
 from settings_local import __apikey__
 
 __author__ = 'hewigovens'
+__version__ = '1.0.1'
 
 latest_rates = 'latest_rates.json'
 popclip_text = os.getenv('POPCLIP_TEXT')
 popclip_text = popclip_text.replace(',', '')
 support_currency = {
     '$': 'USD',
+    'USD': 'USD',
     '£': 'GBP',
     '€': 'EUR',
     '円': 'JPY',
-    'USD': 'USD',
-    'JPY': 'JPY'
+    'JPY': 'JPY',
+    '￥': 'JPY'
 }
 
 locale.setlocale(locale.LC_ALL, 'zh_CN')
