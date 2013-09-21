@@ -17,6 +17,7 @@ popclip_text = popclip_text.replace(',', '')
 support_currency = {
     '$': 'USD',
     'USD': 'USD',
+    'TWD': 'TWD',
     '£': 'GBP',
     '€': 'EUR',
     '円': 'JPY',
