@@ -15,6 +15,7 @@ TEST_INPUT=(
     "JPY 3,105"
     "\$898,921"
     "\$6.99"
+    "HK\$ 11, 488"
 )
 
 COUNT=${#TEST_INPUT[@]}
