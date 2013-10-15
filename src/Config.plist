@@ -32,6 +32,6 @@
 		<string>CNY Currency Convert</string>
 	</dict>
 	<key>Required Software Version</key>
-	<integer>701</integer>
+	<integer>601</integer>
 </dict>
 </plist>
