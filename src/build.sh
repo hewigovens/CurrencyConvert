@@ -8,6 +8,8 @@ EXT_FILENAME="$APP.popclipextz"
 
 rm -rf $EXT_FOLDER $EXT_FILENAME
 mkdir -p $EXT_FOLDER
+mkdir -p ../build
+
 for file in $FILES; do
     cp $file $EXT_FOLDER
 done

@@ -1,5 +1,7 @@
 ## A [PopClip](http://pilotmoon.com/popclip/extensions/) extension that converts USD/GBP/EUR/JPY to CNY
 
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hewigovens/currencyconvert/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
 ###Demo
 
 ![image](doc/before.png)
