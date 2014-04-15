@@ -6,6 +6,8 @@
 
 ![image](doc/after.png)
 
+![image](doc/convert.gif)
+
 ###How to build
 
 * Install PopClip
