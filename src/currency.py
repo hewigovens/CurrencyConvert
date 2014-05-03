@@ -6,6 +6,7 @@ import urllib2
 import os
 import time
 import locale
+import sys
 from settings_local import __apikey__
 from collections import OrderedDict
 
@@ -39,26 +40,36 @@ def get_latest_rates():
     with open(latest_rates, 'w') as fp:
         fp.writelines(''.join(rates_req.readlines()))
 
-if not os.path.exists(latest_rates):
-    get_latest_rates()
 
-time_now = int(time.time())
-fp = open(latest_rates)
-rates_json = json.load(fp)
-timestamp = rates_json['timestamp']
-if time_now - timestamp >= 86400:
-    fp.close()
-    get_latest_rates()
-    fp = open(latest_rates)
-    rates_json = json.load(fp)
+def main():
+    if not os.path.exists(latest_rates):
+        get_latest_rates()
 
-for currency in support_currency.keys():
-    if currency in popclip_text:
-        dollars = float(popclip_text.replace(
-            currency, '').replace(' ','')) / rates_json['rates'][support_currency[currency]]
-        break
+    time_now = int(time.time())
+    timestamp = sys.maxint
+    try:
+        fp = open(latest_rates)
+        rates_json = json.load(fp)
+        timestamp = rates_json['timestamp']
+    except:
+        pass
+    finally:
+        if time_now - timestamp >= 86400:
+            fp.close()
+            get_latest_rates()
+            fp = open(latest_rates)
+            rates_json = json.load(fp)
 
-chinese_yuan = dollars * rates_json['rates']['CNY']
+    for currency in support_currency.keys():
+        if currency in popclip_text:
+            dollars = float(popclip_text.replace(
+                currency, '').replace(' ', '')) / rates_json['rates'][support_currency[currency]]
+            break
 
-print("￥%s" % (locale.format('%.2f', chinese_yuan, grouping=True)))
-fp.close
+    chinese_yuan = dollars * rates_json['rates']['CNY']
+
+    print("￥%s" % (locale.format('%.2f', chinese_yuan, grouping=True)))
+    fp.close
+
+if __name__ == '__main__':
+    main()
