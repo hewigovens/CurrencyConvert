@@ -36,7 +36,7 @@ dollars = None
 
 def get_latest_rates():
     rates_req = urllib2.urlopen(
-        'http://openexchangerates.org/api/latest.json?app_id=%s' % __apikey__)
+        'https://openexchangerates.org/api/latest.json?app_id=%s' % __apikey__)
     with open(latest_rates, 'w') as fp:
         fp.writelines(''.join(rates_req.readlines()))
 
