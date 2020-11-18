@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # coding:utf-8
 
 import json
-import urllib2
+import urllib.request
 import os
 import time
 import locale
@@ -35,7 +35,7 @@ dollars = None
 
 
 def get_latest_rates():
-    rates_req = urllib2.urlopen(
+    rates_req = urllib.request.urlopen(
         'https://openexchangerates.org/api/latest.json?app_id=%s' % __apikey__)
     with open(latest_rates, 'w') as fp:
         fp.writelines(''.join(rates_req.readlines()))
@@ -46,7 +46,7 @@ def main():
         get_latest_rates()
 
     time_now = int(time.time())
-    timestamp = sys.maxint
+    timestamp = float("inf")
     try:
         fp = open(latest_rates)
         rates_json = json.load(fp)
@@ -67,9 +67,8 @@ def main():
             break
 
     chinese_yuan = dollars * rates_json['rates']['CNY']
-
-    print("￥%s" % (locale.format('%.2f', chinese_yuan, grouping=True)))
-    fp.close
+    print("￥%s" % (locale.format_string('%.2f', chinese_yuan, grouping=True)))
+    fp.close()
 
 if __name__ == '__main__':
     main()

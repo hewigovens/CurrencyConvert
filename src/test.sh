@@ -23,5 +23,5 @@ COUNT=${#TEST_INPUT[@]}
 for ((i=0; i<$COUNT; i++)); do
     export POPCLIP_TEXT="${TEST_INPUT[$i]}"
     printf "$POPCLIP_TEXT is:"
-    python currency.py
+    python3 currency.py
 done
