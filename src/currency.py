@@ -7,6 +7,7 @@ import os
 import time
 import locale
 import sys
+
 from settings_local import __apikey__
 from collections import OrderedDict
 
@@ -15,6 +16,9 @@ __version__ = '1.0.1'
 
 latest_rates = 'latest_rates.json'
 popclip_text = os.getenv('POPCLIP_TEXT')
+if not popclip_text:
+    popclip_text = "100$"
+
 popclip_text = popclip_text.replace(',', '')
 support_currency = OrderedDict([
     ('USD', 'USD'),
@@ -35,11 +39,10 @@ dollars = None
 
 
 def get_latest_rates():
-    rates_req = urllib.request.urlopen(
+    response = urllib.request.urlopen(
         'https://openexchangerates.org/api/latest.json?app_id=%s' % __apikey__)
-    with open(latest_rates, 'w') as fp:
-        fp.writelines(''.join(rates_req.readlines()))
-
+    with open(latest_rates, 'wb') as fp:
+        fp.write(response.read())
 
 def main():
     if not os.path.exists(latest_rates):
@@ -47,6 +50,7 @@ def main():
 
     time_now = int(time.time())
     timestamp = float("inf")
+    rates_json = None
     try:
         fp = open(latest_rates)
         rates_json = json.load(fp)

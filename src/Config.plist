@@ -12,7 +12,7 @@
 			<key>Regular Expression</key>
 			<string>^((USD)|(TWD)|(NT)|(HK\$)|(JPY)|[\$£€円￥])[ ]?\d+[,\. ]?\d*\b|\d+[,\.]?\d+[ ]?([\$£€円￥]|([ ]?(USD)|(TWD)|(NT)|(HK\$)|(JPY)))$</string>
 			<key>Script Interpreter</key>
-			<string>/usr/local/bin/python3</string>
+			<string>/usr/bin/python3</string>
 			<key>Shell Script File</key>
 			<string>currency.py</string>
 			<key>Title</key>

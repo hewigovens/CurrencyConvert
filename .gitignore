@@ -3,3 +3,4 @@
 *.pyc
 *.pyo
 src/settings_local.py
+latest_rates.json
